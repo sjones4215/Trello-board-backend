@@ -10,7 +10,8 @@ class BoardsController < ApplicationController
 
   # GET /boards/1
   def show
-    render json: @board
+    @cards = Card.where(board_id: params[:id])
+    render json: { boards: @board, cards: @cards}
   end
 
   # POST /boards
@@ -18,7 +19,7 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
 
     if @board.save
-      render json: @board, status: :created, location: @board
+      render json: @board, status: :created
     else
       render json: @board.errors, status: :unprocessable_entity
     end
@@ -46,6 +47,6 @@ class BoardsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def board_params
-      params.require(:board).permit(:cards, :title, :description, :image)
+      params.require(:board).permit(:title, :description, :image)
     end
 end
