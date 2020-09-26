@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_023912) do
+ActiveRecord::Schema.define(version: 2020_09_26_031337) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 2020_09_26_023912) do
 
   create_table "posts", force: :cascade do |t|
     t.string "body"
-    t.integer "cards_id", null: false
+    t.integer "card_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cards_id"], name: "index_posts_on_cards_id"
+    t.index ["card_id"], name: "index_posts_on_card_id"
   end
 
   add_foreign_key "cards", "boards"
-  add_foreign_key "posts", "cards", column: "cards_id"
+  add_foreign_key "posts", "cards"
 end

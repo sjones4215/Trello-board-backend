@@ -2,8 +2,8 @@
 
 one:
   body: MyString
-  cards: one
+  card: one
 
 two:
   body: MyString
-  cards: two
+  card: two

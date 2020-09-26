@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :posts
   namespace :boards, defaults: {format: :json} do
     get :index
     get :show
