@@ -11,7 +11,7 @@ class BoardsController < ApplicationController
   # GET /boards/1
   def show
     @cards = Card.where(board_id: params[:id])
-    @posts = Post.where(cards_id: params[:id])
+    @posts = Post.where(card_id: params[:id])
     render json: { boards: @board, cards: @cards, posts: @posts}
   end
 
