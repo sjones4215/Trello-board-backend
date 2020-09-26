@@ -11,7 +11,6 @@ class CardsController < ApplicationController
   # GET /cards/1
   def show
     @post_its = Postit.where(card_id: params[:id]) 
-    
     render json: { cards: @cards, post_its: @post_its }
   end
 
