@@ -4,8 +4,9 @@ class CardsController < ApplicationController
   # GET /cards
   def index
     @cards = Card.all
+    @post_its = Post_it.where(card_id: params[:id]) 
 
-    render json: @cards
+    render json: {cards: @cards, post_its: @post_its}
   end
 
   # GET /cards/1
