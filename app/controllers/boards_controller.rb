@@ -12,7 +12,7 @@ class BoardsController < ApplicationController
   def show
     @cards = Card.where(board_id: params[:id])
     @posts = Post.where(card_id: params[:id])
-  render json: { boards: @board, cards: @cards, { posts: @posts}}
+  render json: { boards: @board, cards: @cards, posts: @posts }
   end
 
   # POST /boards
