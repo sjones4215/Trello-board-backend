@@ -15,14 +15,13 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-      @post = Post.new(post_params)
-    
+    @post = Post.new(post_params)
+
     if @post.save
       render json: @post, status: :created
     else
       render json: @post.errors, status: :unprocessable_entity
     end
-  
   end
 
   # PATCH/PUT /posts/1
@@ -47,6 +46,6 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:body, :card_id)
+      params.require(:post).permit(:body, :board_id, :card_id)
     end
 end

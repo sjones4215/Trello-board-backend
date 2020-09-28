@@ -2,8 +2,10 @@
 
 one:
   body: MyString
+  board: one
   card: one
 
 two:
   body: MyString
+  board: two
   card: two

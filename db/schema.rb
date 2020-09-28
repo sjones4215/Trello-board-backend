@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_014710) do
+ActiveRecord::Schema.define(version: 2020_09_28_015110) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
@@ -30,5 +30,17 @@ ActiveRecord::Schema.define(version: 2020_09_28_014710) do
     t.index ["board_id"], name: "index_cards_on_board_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "body"
+    t.integer "board_id", null: false
+    t.integer "card_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_posts_on_board_id"
+    t.index ["card_id"], name: "index_posts_on_card_id"
+  end
+
   add_foreign_key "cards", "boards"
+  add_foreign_key "posts", "boards"
+  add_foreign_key "posts", "cards"
 end
