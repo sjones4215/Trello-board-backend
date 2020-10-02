@@ -11,7 +11,7 @@ class BoardsController < ApplicationController
   # GET /boards/1
   def show
     @cards = Card.where(board_id: params[:id])
-    render json: { boards: @board, cards: @cards.to_json(:include => :posts)}
+    render json: @boards, include: ['cards', 'posts']
   end
 
   # POST /boards
