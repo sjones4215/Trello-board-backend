@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
 
   # GET /boards/1
   def show
-    render json: @board, include: ['cards']
+    render json: @board, include: [:cards, include: [:posts]]
   end
 
   # POST /boards
