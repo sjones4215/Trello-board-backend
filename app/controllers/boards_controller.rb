@@ -10,8 +10,7 @@ class BoardsController < ApplicationController
 
   # GET /boards/1
   def show
-    @cards = Card.where(board_id: params[:id])
-    render json: @boards, include: ['cards', 'posts']
+    render json: @board, include: ['cards', 'posts']
   end
 
   # POST /boards
